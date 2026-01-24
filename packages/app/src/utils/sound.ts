@@ -107,7 +107,7 @@ export function playSound(src: string | undefined) {
   if (typeof Audio === "undefined") return
   if (!src) return
   const audio = new Audio(src)
-  audio.play().catch(() => undefined)
+  void audio.play().catch(() => undefined)
 
   // Return a cleanup function to pause the sound.
   return () => {
